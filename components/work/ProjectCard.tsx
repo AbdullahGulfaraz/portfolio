@@ -42,7 +42,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
       {/* Footer Tags & Arrow */}
       <div className="mt-6 flex items-center justify-between border-t border-border pt-4">
         <div className="flex flex-wrap gap-2">
-          {project.tags.slice(0, 3).map((tag) => (
+          {project.tags.slice(0, 3).map((tag: string) => (
             <span
               key={tag}
               className="rounded-full bg-neutral-100 px-2.5 py-0.5 text-xs text-secondary"

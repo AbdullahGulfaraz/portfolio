@@ -8,6 +8,8 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   href?: string;
   variant?: "primary" | "secondary" | "outline";
   showArrow?: boolean;
+  target?: string;
+  rel?: string;
   children: React.ReactNode;
 }
 
@@ -15,6 +17,8 @@ export const Button = ({
   href,
   variant = "primary",
   showArrow = false,
+  target,
+  rel,
   className,
   children,
   ...props
@@ -39,7 +43,12 @@ export const Button = ({
 
   if (href) {
     return (
-      <Link href={href} className={cn(baseStyles, variants[variant], className)}>
+      <Link
+        href={href}
+        target={target}
+        rel={rel}
+        className={cn(baseStyles, variants[variant], className)}
+      >
         {content}
       </Link>
     );

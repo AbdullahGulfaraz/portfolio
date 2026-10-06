@@ -3,7 +3,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, Variants } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { siteConfig } from "@/data/site";
 import { Button } from "@/components/ui/Button";
@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/Button";
 export const Hero = () => {
   const shouldReduceMotion = useReducedMotion();
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -22,12 +22,12 @@ export const Hero = () => {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 25 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] },
+      transition: { duration: 0.7, ease: "easeOut" },
     },
   };
 
@@ -38,16 +38,13 @@ export const Hero = () => {
       variants={containerVariants}
       className="relative overflow-hidden px-6 pt-12 pb-20 sm:px-8 md:px-12 md:pt-16 md:pb-28"
     >
-      {/* Huge Responsive Typography Name */}
       <motion.div variants={itemVariants} className="w-full select-none text-center">
         <h1 className="hero-clamp font-extrabold uppercase tracking-tighter text-primary">
           {siteConfig.name}
         </h1>
       </motion.div>
 
-      {/* Main Grid */}
       <div className="mt-8 grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
-        {/* Left Copy & Actions */}
         <div className="order-2 lg:order-1 lg:col-span-7">
           <motion.div
             variants={itemVariants}
@@ -70,7 +67,6 @@ export const Hero = () => {
             Specializing in Flutter mobile development, Django full-stack systems, and robust n8n workflow automations that eliminate manual overhead.
           </motion.p>
 
-          {/* Hero CTAs */}
           <motion.div variants={itemVariants} className="mt-8 flex flex-wrap items-center gap-4">
             <Button href="#work" showArrow>
               Explore Selected Work
@@ -80,7 +76,6 @@ export const Hero = () => {
             </Button>
           </motion.div>
 
-          {/* Social Quick-Links */}
           <motion.div
             variants={itemVariants}
             className="mt-10 flex items-center gap-6 border-t border-border pt-6 text-sm font-medium text-secondary"
@@ -104,7 +99,6 @@ export const Hero = () => {
           </motion.div>
         </div>
 
-        {/* Right Portrait */}
         <motion.div
           variants={itemVariants}
           className="order-1 flex justify-center lg:order-2 lg:col-span-5"

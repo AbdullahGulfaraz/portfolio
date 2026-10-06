@@ -61,7 +61,7 @@ export const Services = () => {
                           {service.description}
                         </p>
                         <div className="mt-4 flex flex-wrap gap-2">
-                          {service.tags.map((tag) => (
+                          {service.tags.map((tag: string) => (
                             <span
                               key={tag}
                               className="rounded-full border border-border bg-neutral-50 px-3 py-1 text-xs text-primary"
@@ -77,7 +77,7 @@ export const Services = () => {
                           Key Deliverables
                         </h4>
                         <ul className="mt-2 space-y-1.5 text-sm text-secondary">
-                          {service.deliverables.map((item) => (
+                          {service.deliverables.map((item: string) => (
                             <li key={item} className="flex items-center gap-2">
                               <span className="h-1 w-1 rounded-full bg-primary" />
                               <span>{item}</span>

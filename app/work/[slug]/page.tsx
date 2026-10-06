@@ -88,12 +88,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <div className="col-span-2">
             <span className="block text-xs font-semibold uppercase text-muted">Tech Stack</span>
             <div className="mt-1 flex flex-wrap gap-1.5">
-              {project.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-sm bg-neutral-100 px-2 py-0.5 text-xs text-secondary"
-                >
-                  {tag}
+              {project.tags.map((tag: string) => (
+                <span key={tag} className="rounded-sm bg-neutral-100 px-2 py-0.5 text-xs text-secondary">
+                    {tag}
                 </span>
               ))}
             </div>
@@ -165,13 +162,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <span className="text-xs font-mono text-muted uppercase tracking-widest">04 — Core Deliverables</span>
             <h2 className="mt-2 text-2xl font-bold tracking-tight text-primary">Implemented Capabilities</h2>
             <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-              {project.features.map((feature, idx) => (
-                <div
-                  key={idx}
-                  className="flex items-start gap-3 rounded-xl border border-border bg-neutral-50/50 p-4"
-                >
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                  <span className="text-sm font-medium text-secondary">{feature}</span>
+              {project.features.map((feature: string, idx: number) => (
+                <div key={idx} className="flex items-start gap-3 rounded-xl border border-border bg-neutral-50/50 p-4">
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                    <span className="text-sm font-medium text-secondary">{feature}</span>
                 </div>
               ))}
             </div>
