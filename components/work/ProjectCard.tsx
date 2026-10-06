@@ -1,6 +1,7 @@
 // components/work/ProjectCard.tsx
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { Project } from "@/types/portfolio";
 
@@ -15,11 +16,17 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
       className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-border bg-surface p-6 transition-all duration-300 hover:-translate-y-1 hover:border-neutral-400 dark:hover:border-neutral-600 sm:p-8"
     >
       <div>
-        {/* Project Image Shell */}
-        <div className="relative aspect-16/10 w-full overflow-hidden rounded-xl border border-border bg-neutral-100 dark:bg-neutral-900 transition-transform duration-500 group-hover:scale-[1.01]">
-          <div className="flex h-full w-full items-center justify-center text-xs text-muted">
-            <span>{project.title} Preview</span>
-          </div>
+        {/* Project Image Container */}
+        <div className="relative aspect-16/10 w-full overflow-hidden rounded-xl border border-border bg-neutral-100 dark:bg-neutral-900">
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+            className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
+          />
+          {/* Subtle dark gradient overlay to make tags/contrast look polished */}
+          <div className="absolute inset-0 bg-black/5 dark:bg-black/20 pointer-events-none transition-opacity group-hover:opacity-0" />
         </div>
 
         {/* Metadata */}
