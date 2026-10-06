@@ -29,20 +29,24 @@ export const SelectedWork = () => {
             className="mb-8 md:mb-0"
           />
 
+          {/* Theme-Adaptive Filter Buttons */}
           <div className="flex flex-wrap gap-2">
-            {CATEGORIES.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`rounded-full px-4 py-1.5 text-xs font-medium transition-all ${
-                  activeCategory === cat
-                    ? "bg-primary text-white"
-                    : "border border-border bg-white text-secondary hover:text-primary"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+            {CATEGORIES.map((cat) => {
+              const isActive = activeCategory === cat;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  className={`rounded-full px-4 py-1.5 text-xs font-medium transition-all cursor-pointer ${
+                    isActive
+                      ? "bg-primary text-surface shadow-xs"
+                      : "border border-border bg-surface text-secondary hover:text-primary hover:border-neutral-400 dark:hover:border-neutral-600"
+                  }`}
+                >
+                  {cat}
+                </button>
+              );
+            })}
           </div>
         </div>
       </Reveal>
