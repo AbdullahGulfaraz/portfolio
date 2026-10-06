@@ -7,6 +7,7 @@ import { motion, useReducedMotion, Variants } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { siteConfig } from "@/data/site";
 import { Button } from "@/components/ui/Button";
+import Image from "next/image";
 
 export const Hero = () => {
   const shouldReduceMotion = useReducedMotion();
@@ -102,14 +103,21 @@ export const Hero = () => {
 
         {/* Right Portrait */}
         <motion.div
-        variants={itemVariants}
-        className="order-1 flex justify-center lg:order-2 lg:col-span-5"
+          variants={itemVariants}
+          className="order-1 flex justify-center lg:order-2 lg:col-span-5"
         >
-        <div className="relative aspect-4/5 w-full max-w-sm overflow-hidden rounded-2xl border border-border bg-neutral-100 dark:bg-neutral-900 grayscale transition-all duration-500 hover:grayscale-0">
-            <div className="flex h-full w-full items-center justify-center p-6 text-center text-xs text-muted">
-            <span>High-Contrast Cutout Portrait</span>
-            </div>
-        </div>
+          <div className="relative aspect-4/5 w-full max-w-sm overflow-hidden rounded-2xl border border-border bg-neutral-100 dark:bg-neutral-900 shadow-xl group">
+            <Image
+                src="/images/portrait.png"
+                alt={`${siteConfig.name} - Portrait`}
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 380px"
+                className="object-cover object-top grayscale transition-all duration-700 ease-out group-hover:grayscale-0 group-hover:scale-105"
+            />
+            {/* Subtle bottom gradient vignette to blend seamlessly */}
+            <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-surface to-transparent opacity-60 pointer-events-none" />
+          </div>
         </motion.div>
       </div>
     </motion.section>
