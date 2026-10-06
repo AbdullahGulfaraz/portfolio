@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, CheckCircle2 } from "lucide-react";
 import { projects } from "@/data/projects";
 import { AvailabilityBadge } from "@/components/hero/AvailabilityBadge";
 import { ProjectCard } from "@/components/work/ProjectCard";
@@ -44,7 +44,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const otherProjects = projects.filter((p) => p.slug !== slug).slice(0, 2);
 
   return (
-    <div className="px-6 py-12 sm:px-8 md:px-12 md:py-16">
+    <div className="px-6 pt-28 pb-12 sm:px-8 md:px-12 md:pt-32 md:pb-16 transition-colors duration-300">
       {/* Top Navigation Bar */}
       <div className="flex items-center justify-between border-b border-border pb-6">
         <Link
@@ -60,7 +60,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       {/* Case Study Hero */}
       <header className="mt-12 max-w-4xl">
         <div className="flex flex-wrap items-center gap-3">
-          <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
+          <span className="rounded-full bg-neutral-100 dark:bg-neutral-800 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
             {project.category}
           </span>
           <span className="text-xs text-muted">/</span>
@@ -89,8 +89,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <span className="block text-xs font-semibold uppercase text-muted">Tech Stack</span>
             <div className="mt-1 flex flex-wrap gap-1.5">
               {project.tags.map((tag: string) => (
-                <span key={tag} className="rounded-sm bg-neutral-100 px-2 py-0.5 text-xs text-secondary">
-                    {tag}
+                <span
+                  key={tag}
+                  className="rounded-sm bg-neutral-100 dark:bg-neutral-800 px-2 py-0.5 text-xs text-secondary"
+                >
+                  {tag}
                 </span>
               ))}
             </div>
@@ -116,7 +119,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
       {/* Main Mockup / Hero Showcase Image */}
       <section className="mt-14">
-        <div className="aspect-16/9 w-full overflow-hidden rounded-2xl border border-border bg-neutral-100 flex items-center justify-center text-secondary text-sm">
+        <div className="aspect-16/9 w-full overflow-hidden rounded-2xl border border-border bg-neutral-100 dark:bg-neutral-900 flex items-center justify-center text-secondary text-sm">
           <span>{project.title} — Main Showcase / Architecture Diagram</span>
         </div>
       </section>
@@ -163,9 +166,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <h2 className="mt-2 text-2xl font-bold tracking-tight text-primary">Implemented Capabilities</h2>
             <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
               {project.features.map((feature: string, idx: number) => (
-                <div key={idx} className="flex items-start gap-3 rounded-xl border border-border bg-neutral-50/50 p-4">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                    <span className="text-sm font-medium text-secondary">{feature}</span>
+                <div
+                  key={idx}
+                  className="flex items-start gap-3 rounded-xl border border-border bg-surface p-4 shadow-2xs"
+                >
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                  <span className="text-sm font-medium text-secondary">{feature}</span>
                 </div>
               ))}
             </div>
@@ -177,10 +183,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <section className="mt-20 border-t border-border pt-16">
         <span className="text-xs font-mono text-muted uppercase tracking-widest">Gallery & Interface</span>
         <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
-          <div className="aspect-4/3 rounded-xl border border-border bg-neutral-100 flex items-center justify-center text-xs text-muted">
+          <div className="aspect-4/3 rounded-xl border border-border bg-neutral-100 dark:bg-neutral-900 flex items-center justify-center text-xs text-muted">
             <span>Visual Interface 01</span>
           </div>
-          <div className="aspect-4/3 rounded-xl border border-border bg-neutral-100 flex items-center justify-center text-xs text-muted">
+          <div className="aspect-4/3 rounded-xl border border-border bg-neutral-100 dark:bg-neutral-900 flex items-center justify-center text-xs text-muted">
             <span>Visual Interface 02</span>
           </div>
         </div>
@@ -191,7 +197,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <section className="mt-24 border-t border-border pt-16">
           <div className="mb-10 flex items-center justify-between">
             <span className="text-xs font-semibold uppercase tracking-widest text-secondary">
-              /MORE WORK
+              /MORE WORK[cite: 1]
             </span>
             <Link
               href="/#work"

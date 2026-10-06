@@ -33,10 +33,11 @@ export const Hero = () => {
 
   return (
     <motion.section
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-      className="relative overflow-hidden px-6 pt-12 pb-20 sm:px-8 md:px-12 md:pt-16 md:pb-28"
+    id="top"
+    initial="hidden"
+    animate="visible"
+    variants={containerVariants}
+    className="relative overflow-hidden px-6 pt-28 pb-20 sm:px-8 md:px-12 md:pt-32 md:pb-28"
     >
       <motion.div variants={itemVariants} className="w-full select-none text-center">
         <h1 className="hero-clamp font-extrabold uppercase tracking-tighter text-primary">

@@ -4,9 +4,11 @@
 import React, { useEffect } from "react";
 import Lenis from "lenis";
 
+// Global reference so any button can smoothly scroll instantly
+export let lenisInstance: Lenis | null = null;
+
 export const SmoothScroll = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
-    // Respect user's reduced-motion settings
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (mediaQuery.matches) return;
 
@@ -15,6 +17,8 @@ export const SmoothScroll = ({ children }: { children: React.ReactNode }) => {
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       touchMultiplier: 1.5,
     });
+
+    lenisInstance = lenis;
 
     function raf(time: number) {
       lenis.raf(time);
@@ -25,6 +29,7 @@ export const SmoothScroll = ({ children }: { children: React.ReactNode }) => {
 
     return () => {
       lenis.destroy();
+      lenisInstance = null;
     };
   }, []);
 
