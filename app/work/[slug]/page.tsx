@@ -1,6 +1,7 @@
 // app/work/[slug]/page.tsx
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
 import { projects } from "@/data/projects";
@@ -14,7 +15,6 @@ interface ProjectPageProps {
   }>;
 }
 
-// Generate static params for all project slugs
 export async function generateStaticParams() {
   return projects.map((project) => ({
     slug: project.slug,
@@ -40,7 +40,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     notFound();
   }
 
-  // Get other projects for "More Work" section
   const otherProjects = projects.filter((p) => p.slug !== slug).slice(0, 2);
 
   return (
@@ -100,7 +99,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </div>
 
-        {/* Live Demo or Repo Links if present */}
+        {/* Live Demo or Repo Links */}
         {(project.demoUrl || project.githubUrl) && (
           <div className="mt-8 flex flex-wrap items-center gap-4">
             {project.demoUrl && (
@@ -117,10 +116,17 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         )}
       </header>
 
-      {/* Main Mockup / Hero Showcase Image */}
+      {/* Main Showcase / Architecture Visual */}
       <section className="mt-14">
-        <div className="aspect-16/9 w-full overflow-hidden rounded-2xl border border-border bg-neutral-100 dark:bg-neutral-900 flex items-center justify-center text-secondary text-sm">
-          <span>{project.title} — Main Showcase / Architecture Diagram</span>
+        <div className="relative aspect-16/9 w-full overflow-hidden rounded-2xl border border-border bg-neutral-100 dark:bg-neutral-900 shadow-xl">
+          <Image
+            src={project.image}
+            alt={`${project.title} - Main Showcase`}
+            fill
+            priority
+            sizes="(max-width: 1400px) 100vw, 1200px"
+            className="object-cover object-top"
+          />
         </div>
       </section>
 
@@ -183,11 +189,23 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <section className="mt-20 border-t border-border pt-16">
         <span className="text-xs font-mono text-muted uppercase tracking-widest">Gallery & Interface</span>
         <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
-          <div className="aspect-4/3 rounded-xl border border-border bg-neutral-100 dark:bg-neutral-900 flex items-center justify-center text-xs text-muted">
-            <span>Visual Interface 01</span>
+          <div className="relative aspect-4/3 overflow-hidden rounded-xl border border-border bg-neutral-100 dark:bg-neutral-900">
+            <Image
+              src={project.image}
+              alt={`${project.title} - View 1`}
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover object-center"
+            />
           </div>
-          <div className="aspect-4/3 rounded-xl border border-border bg-neutral-100 dark:bg-neutral-900 flex items-center justify-center text-xs text-muted">
-            <span>Visual Interface 02</span>
+          <div className="relative aspect-4/3 overflow-hidden rounded-xl border border-border bg-neutral-100 dark:bg-neutral-900">
+            <Image
+              src={project.image}
+              alt={`${project.title} - View 2`}
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover object-bottom"
+            />
           </div>
         </div>
       </section>
@@ -197,7 +215,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <section className="mt-24 border-t border-border pt-16">
           <div className="mb-10 flex items-center justify-between">
             <span className="text-xs font-semibold uppercase tracking-widest text-secondary">
-              /MORE WORK[cite: 1]
+              /MORE WORK
             </span>
             <Link
               href="/#work"
