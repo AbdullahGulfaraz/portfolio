@@ -6,6 +6,7 @@ import { PageContainer } from "@/components/layout/PageContainer";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://your-domain.vercel.app"),
@@ -24,15 +25,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
-        <SmoothScroll>
-          <PageContainer>
-            <Header />
-            {children}
-            <Footer />
-          </PageContainer>
-        </SmoothScroll>
+        <ThemeProvider>
+          <SmoothScroll>
+            <PageContainer>
+              <Header />
+              {children}
+              <Footer />
+            </PageContainer>
+          </SmoothScroll>
+        </ThemeProvider>
       </body>
     </html>
   );

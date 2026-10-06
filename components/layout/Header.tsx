@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { AvailabilityBadge } from "@/components/hero/AvailabilityBadge";
 import { Button } from "@/components/ui/Button";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 const NAV_ITEMS = [
   { label: "Work", href: "#work" },
@@ -45,19 +46,20 @@ export const Header = () => {
         </nav>
 
         {/* Desktop CTA & Mobile Toggle */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
           <Button href="#contact" showArrow className="hidden sm:inline-flex">
             Let&apos;s Talk
           </Button>
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-primary transition-colors hover:bg-neutral-100 md:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-primary transition-colors hover:bg-neutral-100 dark:hover:bg-neutral-800 md:hidden"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
-        </div>
+      </div>
       </div>
 
       {/* Mobile Menu Drawer */}

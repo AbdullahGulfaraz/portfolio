@@ -99,15 +99,16 @@ export const Hero = () => {
           </motion.div>
         </div>
 
+        {/* Right Portrait */}
         <motion.div
-          variants={itemVariants}
-          className="order-1 flex justify-center lg:order-2 lg:col-span-5"
+        variants={itemVariants}
+        className="order-1 flex justify-center lg:order-2 lg:col-span-5"
         >
-          <div className="relative aspect-4/5 w-full max-w-sm overflow-hidden rounded-2xl border border-border bg-neutral-100 grayscale transition-all duration-500 hover:grayscale-0">
+        <div className="relative aspect-4/5 w-full max-w-sm overflow-hidden rounded-2xl border border-border bg-neutral-100 dark:bg-neutral-900 grayscale transition-all duration-500 hover:grayscale-0">
             <div className="flex h-full w-full items-center justify-center p-6 text-center text-xs text-muted">
-              <span>High-Contrast Cutout Portrait</span>
+            <span>High-Contrast Cutout Portrait</span>
             </div>
-          </div>
+        </div>
         </motion.div>
       </div>
     </motion.section>

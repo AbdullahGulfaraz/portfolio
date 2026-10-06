@@ -60,15 +60,16 @@ export const Services = () => {
                         <p className="text-base leading-relaxed text-secondary">
                           {service.description}
                         </p>
+                        {/* Inside the opened accordion item */}
                         <div className="mt-4 flex flex-wrap gap-2">
-                          {service.tags.map((tag: string) => (
+                        {service.tags.map((tag: string) => (
                             <span
-                              key={tag}
-                              className="rounded-full border border-border bg-neutral-50 px-3 py-1 text-xs text-primary"
+                            key={tag}
+                            className="rounded-full border border-border bg-neutral-100 dark:bg-neutral-800/80 px-3 py-1 text-xs text-secondary"
                             >
-                              {tag}
+                            {tag}
                             </span>
-                          ))}
+                        ))}
                         </div>
                       </div>
 

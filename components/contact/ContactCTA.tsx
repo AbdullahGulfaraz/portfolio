@@ -52,7 +52,7 @@ export const ContactCTA = () => {
         <div className="lg:col-span-6">
           <Reveal delay={0.15}>
             {submitted ? (
-              <div className="flex h-full min-h-[320px] flex-col items-center justify-center rounded-2xl border border-border bg-neutral-50 p-8 text-center">
+              <div className="flex h-full min-h-[320px] flex-col items-center justify-center rounded-2xl border border-border bg-surface p-8 text-center">
                 <h3 className="text-xl font-bold text-primary">Inquiry Received</h3>
                 <p className="mt-2 text-sm text-secondary">
                   Thank you for reaching out. I will respond to your message shortly.
@@ -68,7 +68,7 @@ export const ContactCTA = () => {
                     required
                     type="text"
                     placeholder="Your Name"
-                    className="w-full rounded-xl border border-border bg-white px-4 py-3 text-sm text-primary placeholder-neutral-400 focus:border-primary focus:outline-none"
+                    className="w-full rounded-xl border border-border bg-neutral-50 dark:bg-neutral-900 px-4 py-3 text-sm text-primary placeholder-neutral-400 focus:border-primary focus:outline-none"
                   />
                 </div>
 
@@ -80,7 +80,7 @@ export const ContactCTA = () => {
                     required
                     type="email"
                     placeholder="name@domain.com"
-                    className="w-full rounded-xl border border-border bg-white px-4 py-3 text-sm text-primary placeholder-neutral-400 focus:border-primary focus:outline-none"
+                    className="w-full rounded-xl border border-border bg-neutral-50 dark:bg-neutral-900 px-4 py-3 text-sm text-primary placeholder-neutral-400 focus:border-primary focus:outline-none"
                   />
                 </div>
 
@@ -88,7 +88,7 @@ export const ContactCTA = () => {
                   <label className="block text-xs font-semibold uppercase text-secondary mb-1.5">
                     Project Type
                   </label>
-                  <select className="w-full rounded-xl border border-border bg-white px-4 py-3 text-sm text-primary focus:border-primary focus:outline-none">
+                  <select className="w-full rounded-xl border border-border bg-neutral-50 dark:bg-neutral-900 px-4 py-3 text-sm text-primary focus:border-primary focus:outline-none">
                     <option>Full-Stack Web Application</option>
                     <option>Mobile App (Flutter)</option>
                     <option>Business Workflow Automation (n8n / WhatsApp)</option>
@@ -105,7 +105,7 @@ export const ContactCTA = () => {
                     required
                     rows={4}
                     placeholder="Briefly describe your objectives or current challenges..."
-                    className="w-full rounded-xl border border-border bg-white px-4 py-3 text-sm text-primary placeholder-neutral-400 focus:border-primary focus:outline-none"
+                    className="w-full rounded-xl border border-border bg-neutral-50 dark:bg-neutral-900 px-4 py-3 text-sm text-primary placeholder-neutral-400 focus:border-primary focus:outline-none"
                   />
                 </div>
 

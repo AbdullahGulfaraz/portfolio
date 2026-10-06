@@ -11,7 +11,7 @@ export const AvailabilityBadge = ({ className }: AvailabilityBadgeProps) => {
   return (
     <div
       className={cn(
-        "inline-flex items-center gap-2 rounded-full border border-border bg-white px-3.5 py-1.5 text-xs font-medium text-primary shadow-xs",
+        "inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3.5 py-1.5 text-xs font-medium text-primary shadow-xs",
         className
       )}
     >

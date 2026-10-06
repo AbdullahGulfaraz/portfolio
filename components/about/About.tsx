@@ -35,7 +35,7 @@ export const About = () => {
         <div className="space-y-8 lg:col-span-7">
           {SKILL_GROUPS.map((group, idx) => (
             <Reveal key={group.category} delay={idx * 0.1}>
-              <div className="rounded-2xl border border-border p-6 bg-neutral-50/50">
+              <div className="rounded-2xl border border-border p-6 bg-surface">
                 <h3 className="text-xs font-semibold uppercase tracking-wider text-muted">
                   {group.category}
                 </h3>
@@ -43,7 +43,7 @@ export const About = () => {
                   {group.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="rounded-full border border-border bg-white px-3.5 py-1.5 text-xs font-medium text-primary shadow-2xs"
+                      className="rounded-full border border-border bg-neutral-100 dark:bg-neutral-800 px-3.5 py-1.5 text-xs font-medium text-primary shadow-2xs"
                     >
                       {skill}
                     </span>
