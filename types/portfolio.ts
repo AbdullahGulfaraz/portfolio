@@ -2,15 +2,16 @@
 export interface Project {
   slug: string;
   title: string;
-  category: "Web" | "Mobile" | "Automation" | "Full Stack";
-  year: string;
-  role: string;
   description: string;
-  image: string;
+  category: "Automation" | "Mobile" | "Web";
+  role: string;
+  year: string;
   tags: string[];
-  featured: boolean;
+  featured?: boolean;
+  image: string;
   demoUrl?: string;
   githubUrl?: string;
+  embedUrl?: string; // LinkedIn or YouTube embed iframe URL
   overview?: string;
   problem?: string;
   solution?: string;

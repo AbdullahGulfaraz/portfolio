@@ -99,12 +99,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </div>
 
-        {/* Live Demo or Repo Links */}
+        {/* Dynamic Action Buttons */}
         {(project.demoUrl || project.githubUrl) && (
           <div className="mt-8 flex flex-wrap items-center gap-4">
             {project.demoUrl && (
               <Button href={project.demoUrl} target="_blank" rel="noopener noreferrer" showArrow>
-                View Live Deployment
+                {project.demoUrl.includes("linkedin") ? "Watch Demo on LinkedIn" : "View Live Deployment"}
               </Button>
             )}
             {project.githubUrl && (
@@ -116,7 +116,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         )}
       </header>
 
-      {/* Main Showcase / Architecture Visual */}
+      {/* Main Showcase / Architecture Diagram */}
       <section className="mt-14">
         <div className="relative aspect-16/9 w-full overflow-hidden rounded-2xl border border-border bg-neutral-100 dark:bg-neutral-900 shadow-xl">
           <Image
@@ -129,6 +129,27 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           />
         </div>
       </section>
+
+      {/* Embedded Video Walkthrough (Rendered if embedUrl exists) */}
+      {project.embedUrl && (
+        <section className="mt-16">
+          <span className="text-xs font-mono text-muted uppercase tracking-widest">Live Execution Walkthrough</span>
+          <h2 className="mt-2 text-2xl font-bold tracking-tight text-primary">System Demo & Architecture Run</h2>
+          
+          <div className="mt-6 flex justify-center overflow-hidden rounded-2xl border border-border bg-neutral-50/50 dark:bg-neutral-900/50 p-4 sm:p-6">
+            <div className="w-full max-w-2xl overflow-hidden rounded-xl shadow-lg border border-border/60">
+              <iframe
+                src={project.embedUrl}
+                height="540"
+                width="100%"
+                title={`${project.title} Video Walkthrough`}
+                className="w-full border-none"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Detailed Case Study Sections */}
       <div className="mt-20 max-w-4xl space-y-16">
@@ -215,7 +236,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <section className="mt-24 border-t border-border pt-16">
           <div className="mb-10 flex items-center justify-between">
             <span className="text-xs font-semibold uppercase tracking-widest text-secondary">
-              /MORE WORK
+              /MORE WORK[cite: 1]
             </span>
             <Link
               href="/#work"

@@ -2,25 +2,27 @@
 import { Project } from "@/types/portfolio";
 
 export const projects: Project[] = [
-  {
-    slug: "whatsapp-order-automation",
-    title: "WhatsApp Order Automation",
-    category: "Automation",
-    year: "2026",
-    role: "Backend & Automation",
-    description: "An automated customer order collection pipeline connecting WhatsApp API, n8n, Firebase, and real-time dashboard notifications.",
-    image: "/images/projects/whatsapp-automation.png",
-    tags: ["WhatsApp API", "n8n", "Firebase", "Docker"],
-    featured: true,
-    overview: "Built to streamline commercial inquiries and direct orders without human intervention at reception.",
-    problem: "Manual customer messaging caused missed leads, delays, and scattered order records across chat histories.",
-    solution: "Structured conversational ordering tree executed via n8n and synchronized directly into Firestore.",
-    features: [
-      "Automated chat conversational intake",
-      "Real-time Firestore synchronization",
-      "Admin alert triggers",
-      "Zero-downtime containerized deployment"
-    ],
+  // data/projects.ts
+{
+  slug: "whatsapp-order-automation",
+  title: "WhatsApp Business Order Automation",
+  description: "End-to-end webhook architecture connecting WhatsApp Cloud API with n8n and Firebase Firestore for autonomous order capture.",
+  category: "Automation",
+  role: "Lead Automation Engineer",
+  year: "2026",
+  tags: ["n8n", "WhatsApp Cloud API", "Firebase", "Webhooks", "Docker"],
+  image: "/images/projects/whatsapp-automation.png",
+  demoUrl: "https://lnkd.in/p/dd6hmq3j", // Direct post link
+  embedUrl: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7484228002067836928?compact=1",  githubUrl: "https://github.com/your-username/whatsapp-order-pipeline", // (Optional: omit if private)
+  overview: "Engineered an autonomous order processing engine for conversational commerce on WhatsApp.",
+  problem: "Manual customer order intake suffered from latency, message drop-offs, and delayed inventory updates.",
+  solution: "Constructed an event-driven webhook pipeline via n8n that validates incoming WhatsApp payloads, writes confirmed records to Firestore, and pushes automated status receipts back to the buyer.",
+  features: [
+    "Sub-second incoming webhook trigger verification",
+    "Conversational decision tree with dynamic reply payloads",
+    "Atomic Firestore document writes for transaction isolation",
+    "Automated PDF invoice generation and media dispatch"
+  ]
   },
   {
     slug: "flutter-business-dashboard",
