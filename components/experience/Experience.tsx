@@ -20,10 +20,12 @@ export const Experience = () => {
         {/* Experience List */}
         <div className="divide-y divide-dark-secondary border-y border-dark-secondary lg:col-span-7">
           {experiences.map((item, idx) => (
-            <Reveal key={item.id} delay={idx * 0.1}>
+            <Reveal key={`${item.company}-${idx}`} delay={idx * 0.1}>
               <div className="py-8">
                 <div className="flex items-center justify-between text-xs text-neutral-400">
-                  <span className="font-mono text-neutral-500">{item.index}</span>
+                  <span className="font-mono text-neutral-500">
+                    {String(idx + 1).padStart(2, "0")}
+                  </span>
                   <span>{item.period}</span>
                 </div>
                 <h3 className="mt-3 text-2xl font-bold tracking-tight text-white">
@@ -32,9 +34,35 @@ export const Experience = () => {
                 <p className="mt-1 text-sm font-medium text-neutral-300">
                   {item.company}
                 </p>
-                <p className="mt-3 text-sm leading-relaxed text-neutral-400">
-                  {item.description}
-                </p>
+
+                {/* Description: Handles string array or single string */}
+                {Array.isArray(item.description) ? (
+                  <ul className="mt-3 space-y-1.5 text-sm leading-relaxed text-neutral-400 list-disc list-inside">
+                    {item.description.map((bullet, bIdx) => (
+                      <li key={bIdx} className="text-neutral-400">
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="mt-3 text-sm leading-relaxed text-neutral-400">
+                    {item.description}
+                  </p>
+                )}
+
+                {/* Skills tags */}
+                {item.skills && item.skills.length > 0 && (
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {item.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="rounded bg-neutral-800/80 px-2 py-0.5 font-mono text-xs text-neutral-300"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
             </Reveal>
           ))}
