@@ -13,7 +13,7 @@ export const projects: Project[] = [
   tags: ["n8n", "WhatsApp Cloud API", "Firebase", "Webhooks", "Docker"],
   image: "/images/projects/whatsapp-automation.png",
   demoUrl: "https://lnkd.in/p/dd6hmq3j", // Direct post link
-  embedUrl: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7484228002067836928?compact=1",  githubUrl: "https://github.com/your-username/whatsapp-order-pipeline", // (Optional: omit if private)
+  embedUrl: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7484228002067836928?compact=1",  
   overview: "Engineered an autonomous order processing engine for conversational commerce on WhatsApp.",
   problem: "Manual customer order intake suffered from latency, message drop-offs, and delayed inventory updates.",
   solution: "Constructed an event-driven webhook pipeline via n8n that validates incoming WhatsApp payloads, writes confirmed records to Firestore, and pushes automated status receipts back to the buyer.",
@@ -55,6 +55,8 @@ export const projects: Project[] = [
     tags: ["HTML5", "CSS3", "Tailwind CSS"],
     featured: true,
     demoUrl: "https://whatsappchatvisualizer.vercel.app",
+    githubUrl: "https://github.com/AbdullahGulfaraz/WhatsAppChatVisualizer",
+    embedUrl: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7512531456779390976?compact=1",
     overview: "A privacy-centric web tool parsing and visualising message logs entirely client-side.",
     problem: "Standard chat exports produce unwieldy plain text files difficult to scan or analyze.",
     solution: "In-browser regex parsing engine providing chronological timeline distributions and statistics.",
