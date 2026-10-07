@@ -3,47 +3,6 @@ import { Project } from "@/types/portfolio";
 
 export const projects: Project[] = [
   // data/projects.ts
-{
-  slug: "whatsapp-order-automation",
-  title: "WhatsApp Business Order Automation",
-  description: "End-to-end webhook architecture connecting WhatsApp Cloud API with n8n and Firebase Firestore for autonomous order capture.",
-  category: "Automation",
-  role: "Lead Automation Engineer",
-  year: "2026",
-  tags: ["n8n", "WhatsApp Cloud API", "Firebase", "Webhooks", "Docker"],
-  image: "/images/projects/whatsapp-automation.png",
-  demoUrl: "https://lnkd.in/p/dd6hmq3j", // Direct post link
-  embedUrl: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7484228002067836928?compact=1",  
-  overview: "Engineered an autonomous order processing engine for conversational commerce on WhatsApp.",
-  problem: "Manual customer order intake suffered from latency, message drop-offs, and delayed inventory updates.",
-  solution: "Constructed an event-driven webhook pipeline via n8n that validates incoming WhatsApp payloads, writes confirmed records to Firestore, and pushes automated status receipts back to the buyer.",
-  features: [
-    "Sub-second incoming webhook trigger verification",
-    "Conversational decision tree with dynamic reply payloads",
-    "Atomic Firestore document writes for transaction isolation",
-    "Automated PDF invoice generation and media dispatch"
-  ]
-  },
-  {
-    slug: "flutter-business-dashboard",
-    title: "Flutter Business Dashboard",
-    category: "Mobile",
-    year: "2026",
-    role: "Mobile App Developer",
-    description: "Cross-platform mobile application providing real-time store metrics, live inventory counts, and push alerts.",
-    image: "/images/projects/flutter-dashboard.png",
-    tags: ["Flutter", "Dart", "Firebase", "State Management"],
-    featured: true,
-    overview: "A lightweight administrative portal designed for on-the-go order and inventory oversight.",
-    problem: "Store managers required instantaneous updates without tethering to desktop environments.",
-    solution: "Reactive Flutter UI linked to Firestore streams for low-latency live synchronization.",
-    features: [
-      "Live order updates without pull-to-refresh",
-      "Role-based authentication",
-      "Offline cache support",
-      "Instant push dispatch"
-    ],
-  },
   {
     slug: "whatsapp-chat-visualizer",
     title: "ChatFlow — WhatsApp Chat Visualizer & Analytics",
@@ -77,6 +36,44 @@ export const projects: Project[] = [
       "Dynamic Perspective Switcher: Auto-detects participants and re-aligns speech bubbles dynamically based on the selected user",
       "Live In-Chat Search: Instant query filtering across conversation history with inline keyword highlights and match counters",
       "Data Export & Print: High-fidelity print-to-PDF formatting and clean JSON export utilities"
+    ]
+  },
+  {
+    slug: "whatsapp-order-automation",
+    title: "WhatsApp-Based Order Automation System",
+    description:
+      "An end-to-end conversational commerce platform that automates customer order intake via WhatsApp Cloud API, an 18+ node n8n workflow engine, Firestore real-time persistence, and a Flutter merchant dashboard.",
+    category: "Automation",
+    role: "Backend & Automation Engineer",
+    year: "2026",
+    tags: [
+      "WhatsApp Business API",
+      "n8n",
+      "Firebase Firestore",
+      "Docker",
+      "Flutter",
+      "Firebase Auth",
+      "ngrok",
+      "Webhooks"
+    ],
+    image: "/images/projects/whatsapp-automation.png",
+    demoUrl: "https://www.linkedin.com/feed/update/urn:li:ugcPost:7484228002067836928/",
+    embedUrl: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7484228002067836928?compact=1",
+    githubUrl: "https://github.com/AbdullahGulfaraz/whatsapp-order-automation", // update if your repository URL differs
+    featured: true,
+    overview:
+      "Small businesses across Pakistan rely predominantly on WhatsApp for customer interactions and manual order management. Handling this manually causes delayed response times, dropped orders, unorganized records, and operational friction. This project delivers a unified automation ecosystem: customers chat naturally with an automated WhatsApp bot to finalize orders, which instantly persist to a cloud database and populate a dedicated Flutter administrative dashboard in real time.",
+    problem:
+      "Manual order intake through personal or business WhatsApp numbers leads to high customer drop-off, missed inquiries during peak periods, human error in logging shipping addresses, and a lack of consolidated order tracking for merchant operations.",
+    solution:
+      "Architected an event-driven automation backend utilizing the Meta WhatsApp Business API and an n8n workflow engine running inside a Dockerized environment. Built a conversational state machine comprising 18+ custom nodes to validate user inputs, collect structured customer details (name, itemized cart, delivery address), and execute isolated atomic writes to Firebase Firestore. The orders synchronize immediately to a companion Flutter mobile dashboard secured via Firebase Authentication.",
+    features: [
+      "WhatsApp Cloud API Webhook Integration: Handles bidirectional payload reception and conversational state tracking with sub-second latency",
+      "18+ Node n8n Workflow Engine: Manages dynamic conversational logic, data normalization, validation checkpoints, and fallback handlers",
+      "Real-Time Firestore Cloud Pipeline: Atomic database writes with configured security rules for isolated merchant and customer records",
+      "Docker & ngrok Deployment: Engineered a containerized local runtime environment with secure encrypted webhook tunneling",
+      "Flutter Mobile Merchant App: Real-time order streams, status progression (Pending/Delivered), and Firebase Auth security",
+      "Zero Manual Data Entry: Automatic customer profile capture, order summary generation, and instant receipt dispatches"
     ]
   },
 ];
