@@ -46,24 +46,37 @@ export const projects: Project[] = [
   },
   {
     slug: "whatsapp-chat-visualizer",
-    title: "WhatsApp Chat Visualizer",
+    title: "ChatFlow — WhatsApp Chat Visualizer & Analytics",
+    description:
+      "A privacy-first web application that transforms raw WhatsApp .zip archives and .txt exports into an interactive, authentic conversation interface with zero server-side transmission.",
     category: "Web",
+    role: "Full-Stack Developer & UI Architect",
     year: "2026",
-    role: "Frontend Developer",
-    description: "Client-side analytics tool parsing WhatsApp text exports into interactive conversational metrics and media summaries.",
+    tags: [
+      "HTML5",
+      "CSS3",
+      "Tailwind CSS",
+      "JSZip",
+      "Vercel"
+    ],
     image: "/images/projects/chat-visualizer.png",
-    tags: ["HTML5", "CSS3", "Tailwind CSS"],
-    featured: true,
     demoUrl: "https://whatsappchatvisualizer.vercel.app",
     githubUrl: "https://github.com/AbdullahGulfaraz/WhatsAppChatVisualizer",
     embedUrl: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7512531456779390976?compact=1",
-    overview: "A privacy-centric web tool parsing and visualising message logs entirely client-side.",
-    problem: "Standard chat exports produce unwieldy plain text files difficult to scan or analyze.",
-    solution: "In-browser regex parsing engine providing chronological timeline distributions and statistics.",
+    overview:
+      "Exported WhatsApp conversations are stored as flat, messy plain-text files or compressed .zip archives cluttered with inconsistent timestamps, missed call entries, and raw attachment references. ChatFlow ingests these files and reconstructs them into an authentic, responsive messaging interface featuring dynamic participant alignment, instant keyword search, and dark/light themes—running 100% in-browser with zero external server dependencies.",
+    problem:
+      "Users looking to reread, search, or review meaningful chat archives are forced to scroll through disjointed raw text or upload private, sensitive communication logs to untrusted third-party cloud tools that risk data exposure.",
+    solution:
+      "Engineered an entirely in-memory client-side parsing pipeline using JSZip and an adaptive regex engine. The application handles multi-platform timestamps (iOS bracketed logs and Android 12h/24h), purges invisible Unicode noise, auto-detects conversation participants for dynamic perspective switching, and renders a realistic chat environment complete with live search and structured JSON/PDF export capabilities.",
     features: [
-      "100% in-browser processing with zero server uploads",
-      "Message velocity and volume graphs",
-      "Top contributor and response time stats"
-    ],
+      "100% Client-Side Privacy: All parsing and rendering execute entirely in-memory with zero server transmissions",
+      ".zip & .txt Dual Ingestion: Automated extraction of iOS (_chat.txt) and Android archives directly in the browser via JSZip",
+      "Universal Multi-Format Parser: Seamless reconciliation of iOS bracket timestamps and Android 12h/24h variants",
+      "Noise & Unicode Filtering: Systematic sanitization of phantom call records, empty lines, and invisible Unicode spaces (\\u200B, \\u202F, \\u00A0)",
+      "Dynamic Perspective Switcher: Auto-detects participants and re-aligns speech bubbles dynamically based on the selected user",
+      "Live In-Chat Search: Instant query filtering across conversation history with inline keyword highlights and match counters",
+      "Data Export & Print: High-fidelity print-to-PDF formatting and clean JSON export utilities"
+    ]
   },
 ];
