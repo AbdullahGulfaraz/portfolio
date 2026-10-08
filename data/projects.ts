@@ -57,9 +57,7 @@ export const projects: Project[] = [
       "Webhooks"
     ],
     image: "/images/projects/whatsapp-automation.png",
-    demoUrl: "https://www.linkedin.com/feed/update/urn:li:ugcPost:7484228002067836928/",
     embedUrl: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7484228002067836928?compact=1",
-    githubUrl: "https://github.com/AbdullahGulfaraz/whatsapp-order-automation", // update if your repository URL differs
     featured: true,
     overview:
       "Small businesses across Pakistan rely predominantly on WhatsApp for customer interactions and manual order management. Handling this manually causes delayed response times, dropped orders, unorganized records, and operational friction. This project delivers a unified automation ecosystem: customers chat naturally with an automated WhatsApp bot to finalize orders, which instantly persist to a cloud database and populate a dedicated Flutter administrative dashboard in real time.",
