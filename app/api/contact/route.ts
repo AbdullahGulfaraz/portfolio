@@ -3,8 +3,6 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { siteConfig } from "@/data/site";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(req: Request) {
   try {
     const { name, email, projectType, message } = await req.json();
@@ -17,9 +15,11 @@ export async function POST(req: Request) {
       );
     }
 
-    // Safety fallback: if no API key is configured yet, log to console in dev
-    if (!process.env.RESEND_API_KEY) {
-      console.warn("[CONTACT_FORM_DEV] Missing RESEND_API_KEY. Simulated submission:", {
+    const apiKey = process.env.RESEND_API_KEY;
+
+    // Graceful fallback if API key is not provided
+    if (!apiKey) {
+      console.warn("[CONTACT_DEV] Missing RESEND_API_KEY. Simulated submission:", {
         name,
         email,
         projectType,
@@ -31,9 +31,11 @@ export async function POST(req: Request) {
       );
     }
 
-    // Deliver email via Resend
+    // Instantiate Resend at runtime when the key is guaranteed
+    const resend = new Resend(apiKey);
+
     const data = await resend.emails.send({
-      from: "Portfolio Contact <onboarding@resend.dev>", // replace with your verified domain once configured
+      from: "Portfolio Contact <onboarding@resend.dev>",
       to: siteConfig.contact.email,
       replyTo: email,
       subject: `New Portfolio Inquiry from ${name} [${projectType || "General"}]`,
