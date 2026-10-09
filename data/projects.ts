@@ -2,7 +2,6 @@
 import { Project } from "@/types/portfolio";
 
 export const projects: Project[] = [
-  // data/projects.ts
   {
     slug: "whatsapp-chat-visualizer",
     title: "ChatFlow — WhatsApp Chat Visualizer & Analytics",
@@ -36,7 +35,10 @@ export const projects: Project[] = [
       "Dynamic Perspective Switcher: Auto-detects participants and re-aligns speech bubbles dynamically based on the selected user",
       "Live In-Chat Search: Instant query filtering across conversation history with inline keyword highlights and match counters",
       "Data Export & Print: High-fidelity print-to-PDF formatting and clean JSON export utilities"
-    ]
+    ],
+    gallery: [
+      "/projects/chatflow/landing-hero.png",
+    ],
   },
   {
     slug: "whatsapp-order-automation",
@@ -72,6 +74,8 @@ export const projects: Project[] = [
       "Docker & ngrok Deployment: Engineered a containerized local runtime environment with secure encrypted webhook tunneling",
       "Flutter Mobile Merchant App: Real-time order streams, status progression (Pending/Delivered), and Firebase Auth security",
       "Zero Manual Data Entry: Automatic customer profile capture, order summary generation, and instant receipt dispatches"
-    ]
-  },
+    ],
+    gallery: [
+    ],
+  }
 ];

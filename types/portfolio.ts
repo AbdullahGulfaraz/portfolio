@@ -18,12 +18,12 @@ export interface Project {
   image: string;
   demoUrl?: string;
   githubUrl?: string;
-  embedUrl?: string; // LinkedIn or YouTube embed iframe URL
+  embedUrl?: string;
   overview?: string;
   problem?: string;
   solution?: string;
   features?: string[];
-  gallery?: ProjectGalleryItem[]; // Resolves error on app/work/[slug]/page.tsx
+  gallery?: string[]; // Just an array of image paths
 }
 
 export interface Service {

@@ -25,7 +25,7 @@ export const SelectedWork = () => {
           <SectionHeading
             tag="SELECTED WORK"
             title="Digital Systems & Case Studies"
-            description="A selection of recent projects built with Flutter, Next.js, and automated n8n pipelines."
+            description="Here are some of my recent projects."
             className="mb-8 md:mb-0"
           />
 

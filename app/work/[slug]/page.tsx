@@ -215,7 +215,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <section className="mt-24 border-t border-border pt-16">
           <div className="mb-10 flex items-center justify-between">
             <span className="text-xs font-semibold uppercase tracking-widest text-secondary">
-              /MORE WORK[cite: 1]
+              MORE WORK
             </span>
             <Link
               href="/#work"
