@@ -8,11 +8,48 @@ import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/animations/Reveal";
 
 export const ContactCTA = () => {
+  const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setErrorMessage("");
+
+    const formData = new FormData(e.currentTarget);
+    const payload = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      projectType: formData.get("projectType"),
+      message: formData.get("message"),
+    };
+
+    try {
+      // 1. If using Formspree: replace with your Formspree endpoint (e.g., https://formspree.io/f/xyz)
+      // 2. If using Next.js Route Handler: keep /api/contact
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        const data = await response.json().catch(() => null);
+        throw new Error(data?.error || "Failed to send message. Please try again or reach out directly.");
+      }
+    } catch (err: any) {
+      // Fallback: If no endpoint configured yet or fetch failed, offer mailto backup
+      setErrorMessage(
+        err.message || "Something went wrong. Please email me directly."
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -35,15 +72,19 @@ export const ContactCTA = () => {
                   {siteConfig.contact.email}
                 </a>
               </p>
-              <p>
-                Phone / WhatsApp:{" "}
-                <a
-                  href={`https://wa.me/${siteConfig.contact.phone.replace(/[^0-9]/g, "")}`}
-                  className="font-semibold text-primary underline"
-                >
-                  {siteConfig.contact.phone}
-                </a>
-              </p>
+              {siteConfig.contact.phone && (
+                <p>
+                  Phone / WhatsApp:{" "}
+                  <a
+                    href={`https://wa.me/${siteConfig.contact.phone.replace(/[^0-9]/g, "")}`}
+                    className="font-semibold text-primary underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {siteConfig.contact.phone}
+                  </a>
+                </p>
+              )}
             </div>
           </Reveal>
         </div>
@@ -52,20 +93,45 @@ export const ContactCTA = () => {
         <div className="lg:col-span-6">
           <Reveal delay={0.15}>
             {submitted ? (
-              <div className="flex h-full min-h-[320px] flex-col items-center justify-center rounded-2xl border border-border bg-surface p-8 text-center">
+              <div className="flex h-full min-h-[360px] flex-col items-center justify-center rounded-2xl border border-border bg-surface p-8 text-center">
+                <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-500">
+                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
                 <h3 className="text-xl font-bold text-primary">Inquiry Received</h3>
                 <p className="mt-2 text-sm text-secondary">
                   Thank you for reaching out. I will respond to your message shortly.
                 </p>
+                <button
+                  type="button"
+                  onClick={() => setSubmitted(false)}
+                  className="mt-6 text-xs font-semibold uppercase tracking-wider text-primary underline hover:text-neutral-400"
+                >
+                  Send Another Message
+                </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
+                {errorMessage && (
+                  <div className="rounded-xl border border-red-500/20 bg-red-500/10 p-3 text-xs text-red-400">
+                    {errorMessage} —{" "}
+                    <a
+                      href={`mailto:${siteConfig.contact.email}?subject=Project%20Inquiry`}
+                      className="underline font-semibold"
+                    >
+                      Email me directly
+                    </a>
+                  </div>
+                )}
+
                 <div>
                   <label className="block text-xs font-semibold uppercase text-secondary mb-1.5">
                     Name
                   </label>
                   <input
                     required
+                    name="name"
                     type="text"
                     placeholder="Your Name"
                     className="w-full rounded-xl border border-border bg-neutral-50 dark:bg-neutral-900 px-4 py-3 text-sm text-primary placeholder-neutral-400 focus:border-primary focus:outline-none"
@@ -78,6 +144,7 @@ export const ContactCTA = () => {
                   </label>
                   <input
                     required
+                    name="email"
                     type="email"
                     placeholder="name@domain.com"
                     className="w-full rounded-xl border border-border bg-neutral-50 dark:bg-neutral-900 px-4 py-3 text-sm text-primary placeholder-neutral-400 focus:border-primary focus:outline-none"
@@ -88,7 +155,10 @@ export const ContactCTA = () => {
                   <label className="block text-xs font-semibold uppercase text-secondary mb-1.5">
                     Project Type
                   </label>
-                  <select className="w-full rounded-xl border border-border bg-neutral-50 dark:bg-neutral-900 px-4 py-3 text-sm text-primary focus:border-primary focus:outline-none">
+                  <select
+                    name="projectType"
+                    className="w-full rounded-xl border border-border bg-neutral-50 dark:bg-neutral-900 px-4 py-3 text-sm text-primary focus:border-primary focus:outline-none"
+                  >
                     <option>Full-Stack Web Application</option>
                     <option>Mobile App (Flutter)</option>
                     <option>Business Workflow Automation (n8n / WhatsApp)</option>
@@ -103,14 +173,15 @@ export const ContactCTA = () => {
                   </label>
                   <textarea
                     required
+                    name="message"
                     rows={4}
                     placeholder="Briefly describe your objectives or current challenges..."
                     className="w-full rounded-xl border border-border bg-neutral-50 dark:bg-neutral-900 px-4 py-3 text-sm text-primary placeholder-neutral-400 focus:border-primary focus:outline-none"
                   />
                 </div>
 
-                <Button type="submit" showArrow className="w-full">
-                  Send Message
+                <Button type="submit" showArrow className="w-full" disabled={loading}>
+                  {loading ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             )}
