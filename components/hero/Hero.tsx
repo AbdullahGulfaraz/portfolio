@@ -66,15 +66,15 @@ export const Hero = () => {
             variants={itemVariants}
             className="mt-4 max-w-xl text-base leading-relaxed text-secondary md:text-lg"
           >
-            Specializing in Flutter mobile development, Django full-stack systems, and robust n8n workflow automations that eliminate manual overhead.
+            Specializing in Full-stack web development, Flutter mobile development, and robust n8n workflow automations that eliminate manual overhead.
           </motion.p>
 
           <motion.div variants={itemVariants} className="mt-8 flex flex-wrap items-center gap-4">
             <Button href="#work" showArrow>
-              Explore Selected Work
+              Explore My Work
             </Button>
             <Button href="#contact" variant="outline">
-              Let&apos;s Talk
+              Let's Talk
             </Button>
           </motion.div>
 
