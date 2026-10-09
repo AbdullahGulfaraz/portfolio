@@ -1,4 +1,11 @@
 // types/portfolio.ts
+
+export interface ProjectGalleryItem {
+  src: string;
+  title: string;
+  caption: string;
+}
+
 export interface Project {
   slug: string;
   title: string;
@@ -16,6 +23,7 @@ export interface Project {
   problem?: string;
   solution?: string;
   features?: string[];
+  gallery?: ProjectGalleryItem[]; // Resolves error on app/work/[slug]/page.tsx
 }
 
 export interface Service {

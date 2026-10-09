@@ -8,6 +8,7 @@ import { projects } from "@/data/projects";
 import { AvailabilityBadge } from "@/components/hero/AvailabilityBadge";
 import { ProjectCard } from "@/components/work/ProjectCard";
 import { Button } from "@/components/ui/Button";
+import { ProjectGallery } from "@/components/work/ProjectGallery";
 
 interface ProjectPageProps {
   params: Promise<{
@@ -121,7 +122,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <div className="relative aspect-16/9 w-full overflow-hidden rounded-2xl border border-border bg-neutral-100 dark:bg-neutral-900 shadow-xl">
           <Image
             src={project.image}
-            alt={`${project.title} - Main Showcase`}
+            alt={`${project.title} Main Showcase`}
             fill
             priority
             sizes="(max-width: 1400px) 100vw, 1200px"
@@ -206,30 +207,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         )}
       </div>
 
-      {/* Gallery Section */}
-      <section className="mt-20 border-t border-border pt-16">
-        <span className="text-xs font-mono text-muted uppercase tracking-widest">Gallery & Interface</span>
-        <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
-          <div className="relative aspect-4/3 overflow-hidden rounded-xl border border-border bg-neutral-100 dark:bg-neutral-900">
-            <Image
-              src={project.image}
-              alt={`${project.title} - View 1`}
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover object-center"
-            />
-          </div>
-          <div className="relative aspect-4/3 overflow-hidden rounded-xl border border-border bg-neutral-100 dark:bg-neutral-900">
-            <Image
-              src={project.image}
-              alt={`${project.title} - View 2`}
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover object-bottom"
-            />
-          </div>
-        </div>
-      </section>
+      {/* Dynamic Gallery & Interface Carousel */}
+      <ProjectGallery gallery={project.gallery} title={project.title} />
 
       {/* More Work Section */}
       {otherProjects.length > 0 && (
