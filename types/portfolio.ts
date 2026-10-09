@@ -27,18 +27,24 @@ export interface Service {
 }
 
 export interface Experience {
-  id: string;
-  index: string;
-  role: string;
+  id?: string;
+  index?: string;
   company: string;
+  role: string;
   period: string;
-  description: string;
+  location?: string;
+  description: string | string[];
+  skills?: string[];
+  current?: boolean;
 }
 
 export interface SiteConfig {
   name: string;
   role: string;
   availability: string;
+  description?: string;
+  url?: string;
+  ogImage?: string;
   contact: {
     email: string;
     phone: string;

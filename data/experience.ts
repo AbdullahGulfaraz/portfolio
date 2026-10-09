@@ -1,13 +1,5 @@
 // data/experience.ts
-export interface Experience {
-  company: string;
-  role: string;
-  period: string;
-  location: string;
-  description: string[];
-  skills: string[];
-  current?: boolean;
-}
+import { Experience } from "@/types/portfolio";
 
 export const experiences: Experience[] = [
   {
