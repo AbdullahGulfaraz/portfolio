@@ -103,7 +103,7 @@ export function ProjectGallery({ gallery, title }: ProjectGalleryProps) {
             No preview images available for this project
           </p>
           <p className="mt-1 max-w-sm text-xs text-muted">
-            Live preview links or code demos are available in the project links above.
+            Preview images are not available for this project.
           </p>
         </div>
       )}
