@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     images: [
       {
-        url: "/images/og.png", // Next.js automatically resolves this against metadataBase
+        url: "/images/og.png?v=2", // Next.js automatically resolves this against metadataBase
         width: 1200,
         height: 630,
         type: "image/png",
