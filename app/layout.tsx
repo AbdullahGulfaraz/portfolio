@@ -8,13 +8,28 @@ import { Footer } from "@/components/layout/Footer";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 
+// app/layout.tsx
 export const metadata: Metadata = {
-  metadataBase: new URL("https://your-domain.vercel.app"),
-  title: `${siteConfig.name} — ${siteConfig.role}`,
-  description: "Personal portfolio showcasing full-stack web applications, Flutter mobile apps, and business automations.",
+  metadataBase: new URL("https://abdullahgulfaraz-portfolio.vercel.app"),
+  title: {
+    default: `${siteConfig.name} — ${siteConfig.role}`,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
   openGraph: {
     title: `${siteConfig.name} — ${siteConfig.role}`,
-    description: "Full-Stack Development, Mobile Applications & Business Automation Pipelines.",
+    description: siteConfig.description,
+    url: "https://abdullahgulfaraz-portfolio.vercel.app",
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: "/images/og.png", // Next.js prepends metadataBase automatically
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.name} Portfolio`,
+      },
+    ],
+    locale: "en_US",
     type: "website",
   },
 };
