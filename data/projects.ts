@@ -37,7 +37,10 @@ export const projects: Project[] = [
       "Data Export & Print: High-fidelity print-to-PDF formatting and clean JSON export utilities"
     ],
     gallery: [
-      "/projects/chatflow/landing-hero.png",
+      "/projects/chatflow/hero-dark.png",
+      "/projects/chatflow/hero-light.png",
+      "/projects/chatflow/app-dark.png",
+      "/projects/chatflow/app-light.png",
     ],
   },
   {
