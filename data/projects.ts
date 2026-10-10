@@ -37,10 +37,52 @@ export const projects: Project[] = [
       "Data Export & Print: High-fidelity print-to-PDF formatting and clean JSON export utilities"
     ],
     gallery: [
-      "/projects/chatflow/hero-dark.png",
-      "/projects/chatflow/hero-light.png",
-      "/projects/chatflow/app-dark.png",
-      "/projects/chatflow/app-light.png",
+      "/images/projects/chatflow/hero-dark.png",
+      "/images/projects/chatflow/hero-light.png",
+      "/images/projects/chatflow/app-dark.png",
+      "/images/projects/chatflow/app-light.png",
+    ],
+  },
+    {
+    slug: "fitguide-fitness-platform",
+    title: "FitGuide – Modern Fitness & Exercise Architecture",
+    description:
+      "A high-performance editorial fitness web platform engineered with Next.js 16 (App Router), Tailwind CSS v4, dynamic exercise libraries, split-screen landing experiences, and production CI/CD deployment on Vercel.",
+    category: "Web",
+    role: "Full stack Developer & UI Architect",
+    year: "2026",
+    tags: [
+      "Next.js 16",
+      "React 19",
+      "Tailwind CSS v4",
+      "TypeScript",
+      "Lucide React",
+      "Vercel",
+      "Responsive Design",
+      "Web Performance",
+      "Static Site Generation"
+    ],
+    image: "/images/projects/fitguide.png",
+    demoUrl: "https://personal-fitguide.vercel.app/",
+    githubUrl: "https://github.com/AbdullahGulfaraz/fitguide",
+    embedUrl: "",
+    featured: true,
+    overview:
+      "FitGuide was built to solve the disjointed experience of online workout libraries by providing an ultra-responsive, dark-themed fitness hub. The platform combines full-viewport split-screen visual storytelling with a statically prerendered exercise encyclopedia, structured training guides, and recovery resources built on a single source of truth.",
+    problem:
+      "Many modern workout directories suffer from cluttered interfaces, slow navigation latency, poor mobile adaptations, and bloated client-side bundles, resulting in distracting user experiences and high bounce rates during active workout sessions.",
+    solution:
+      "Architected a scalable, high-performance web application utilizing Next.js 16 App Router and Tailwind CSS v4. Engineered a cinematic hero experience featuring custom CSS glide-up keyframes, borderless athlete cutouts, and resilient fallback states. Implemented a decoupled mobile slide-over drawer powered by React Portals to guarantee zero layout leakage, alongside localized TypeScript datasets powering instant search, muscle filtering, and automated sitemap generation.",
+    features: [
+      "Full-Viewport Kinetic Hero: Custom CSS glide-up animations, directional gradient vignettes, and graceful image fallback rendering",
+      "Single-Source-of-Truth Content Architecture: Centralized TypeScript datasets driving exercise directories, training guides, and dynamic category counts",
+      "Portal-Based Slide-Over Drawer: Isolated right-side navigation drawer using React Portals to bypass parent CSS stacking contexts and eliminate layout bleed",
+      "Dynamic Search & Multi-Param Filtering: Instant client-side muscle group, equipment, and difficulty queries with zero layout shift",
+      "Performance & SEO Optimization: Complete static prerendering, automated XML sitemaps, robots.txt, metadata routing, and edge hosting on Vercel",
+      "Responsive Editorial Dark System: Handcrafted dark surface hierarchy (#101010, #1C1C1C) accented with high-contrast energetic orange (#FF6B1A)"
+    ],
+    gallery: [
+      "/images/projects/fitguide/fitguide-hero.png",
     ],
   },
   {

@@ -8,7 +8,7 @@ import { ProjectCard } from "@/components/work/ProjectCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/animations/Reveal";
 
-const CATEGORIES = ["All", "Automation", "Mobile", "Web"] as const;
+const CATEGORIES = ["All",  "Web", "Automation"] as const;
 
 export const SelectedWork = () => {
   const [activeCategory, setActiveCategory] = useState<string>("All");
